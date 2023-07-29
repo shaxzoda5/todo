@@ -21,13 +21,14 @@ a {
 ul {
     list-style: none;
 }
-button,input {
+button,input, textarea {
     border: none;
     outline: none;
     background: none;
     font-family: inherit;
     font-size: inherit;
     cursor: pointer;
+    resize: none;
    
 }
 
