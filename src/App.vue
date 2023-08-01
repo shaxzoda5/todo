@@ -2,7 +2,11 @@
   <div>
    <Header/>
    <Notes :notes="notes"/>
-   <Modal/>
+   <Modal v-show="modalOpen" 
+   @closeModal="closeModal"
+   :currentId="currentId"
+   />
+   <AddBtn @openModal="openModal"/>
   </div>
 </template>
 
@@ -10,11 +14,13 @@
 import Header from './components/Header.vue';
 import Notes from './components/Notes.vue';
 import Modal from './components/Modal.vue';
+import AddBtn from './components/Add-Btn.vue';
   export default {
     components: {
       Header,
       Notes,
-      Modal
+      Modal,
+      AddBtn
     },
     data(){
       return {
@@ -38,7 +44,17 @@ import Modal from './components/Modal.vue';
             date: '07.03.2022'
           },
           
-        ]
+        ],
+        modalOpen: false,
+        currentId: 1
+      }
+    },
+    methods: {
+      openModal(){
+        this.modalOpen = true
+      },
+      closeModal(){
+        this.modalOpen = false
       }
     }
   }
